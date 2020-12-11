@@ -1,0 +1,14 @@
+int a = 5
+int c ( int f , int g ) {
+	f = 2
+	void d () {
+		int h
+	}
+	h = 4
+}
+char i = 'c'
+int b
+g = 3
+a = 0
+b = c ( a , 0 )
+a % b
