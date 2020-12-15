@@ -28,7 +28,7 @@ def arvore_sintatica(a):
     A = []
     p.append(a[q[0]])
     A.append(add_nodo(a[q[0]]))
-    print(A[0])
+    #print(A[0])
     return A[0]
     
 def simplifica(a):
@@ -78,7 +78,7 @@ def ar_sim(a):
     return a
 def ar_simp(a):
     a = simplifica(a)
-    print(a)
+    #print(a)
     a = ar_sim(a)
-    print(a)
+    #print(a)
     return a

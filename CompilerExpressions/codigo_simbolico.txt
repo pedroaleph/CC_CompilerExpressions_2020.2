@@ -1,0 +1,18 @@
+org 100h
+
+; variaveis
+
+a DW 0
+b DW 0
+
+; expressoes
+
+mov a, 1
+
+mov b, 2
+
+mov ax, a
+add ax, b
+mov a, ax
+
+ret

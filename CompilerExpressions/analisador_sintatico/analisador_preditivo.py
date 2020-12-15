@@ -24,22 +24,24 @@ gramatica_G = {
     }
 ''''arvore sintatica'''
 # import arvore_sintatica as ar
-a = []
+arv = []
 # A = []
 '''implementacao do slide 11'''
 gramatica = {'G': gramatica_G, 'A' : gramatica_A}
 def automatoM(s, g):
+    if arv != []:
+        arv.clear()
     s = s + '$'
     M = g['M']
     pilha  = []
     pilha.append('$')
     pilha.append(g['sentencial'])
     '''vetor para a arvore'''
-    a.append(pilha[-1])
+    arv.append(pilha[-1])
     '''c e l inicialmente em nenhum dos casos'''
     c = -1
     l = -1
-    print(s)
+    #print(s)
     for i in s:
         '''procurando sentenca usando dicionario'''
         if i[0] in g['terminal'].keys():
@@ -54,20 +56,20 @@ def automatoM(s, g):
             '''producao conforme a tabela'''
             Nprod = M[l][c]
             prod = -1
-            print ("P",Nprod)
+            #print ("P",Nprod)
             if Nprod in g['producao'].keys():
                 prod = g['producao'][Nprod]
             else:
                 return False
             if prod[0]=='&':
                 pilha.pop()
-                a.append('&')
+                arv.append('&')
             else:
                 pilha.pop()
                 for j in prod:
                     pilha.append(j[0])
-                a.append(prod[::-1])
-            print (pilha)
+                arv.append(prod[::-1])
+            #print (pilha)
             if pilha[-1] == i[0]:
                 if i[0] == '$':
                     return True

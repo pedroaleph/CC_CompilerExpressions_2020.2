@@ -39,7 +39,7 @@ def arvore_sintatica(a):
                 else:
                     nodo.append(p.pop())
                 p.append(nodo)
-    print (p[0])
+    #print (p[0])
     return p[0]
 
 def simplifica(a):
@@ -49,7 +49,7 @@ def simplifica(a):
         if a[1][0] == '(':
             return simplifica(a[1][1])
         if len(a[1]) > 2:
-            print(a)
+            #print(a)
             t = a[1]
             a = []
             a.append(t[1])
@@ -57,7 +57,7 @@ def simplifica(a):
             a.append(simplifica(t[2]))
         else:
             a = simplifica(a[1])
-    print(a)
+    #print(a)
     return a
 
 

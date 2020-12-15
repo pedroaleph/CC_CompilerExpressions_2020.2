@@ -16,6 +16,8 @@ gramatica_G = {
       [0, 0, 'D', 0, 'D', 0]]
 }
 def automatoM(s, g):
+    if arv != []:
+        arv.clear()
     s = s + '$'
     M = g['M']
     pilha  = []
@@ -26,7 +28,7 @@ def automatoM(s, g):
     '''invertendo a sentenca para assim remover o ultimo simbolo
      depois de ser analisado'''
     s = s[::-1]
-    print(s)
+    #print(s)
     while True:
         '''procurando sentenca usando dicionario'''
         if s[-1] in g['terminal'].keys():
@@ -46,7 +48,7 @@ def automatoM(s, g):
             '''producao conforme a tabela'''
             prod = M[l][c]
             if prod == 'R':
-                print(pilha)
+                #print(pilha)
                 '''para resolver a ambiguidade, verfica se os tres primeiros simbolos
                  no topo da pilha formam algum lado esquedo da producao, colocado os
                  no mesmo indice do topo da pilha caso seja encontrado, assim sendo priorizado'''
@@ -59,7 +61,7 @@ def automatoM(s, g):
                         if q in g['producao'].keys():
                             r.append(q)
                             pilha = r
-                        print(pilha)
+                        #print(pilha)
                 p = pilha.pop()
                 pilha.append(g['producao'][p])
                 arv.append(pilha[-1])
@@ -70,8 +72,8 @@ def automatoM(s, g):
                     print("erro na producao da tabela sintatica")
                     return False
             if pilha[-1] == g['sentencial'] and s[-1] == '$':
-                print(pilha)
-                print (arv)
+                #print(pilha)
+                #print (arv)
                 return True
 '''testando
 print ("digite a sentenca:")
